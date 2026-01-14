@@ -1,0 +1,48 @@
+/* ./src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pokeball pattern background */
+.pokeball-pattern {
+  background-color: #DC0A2D;
+  background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29.7144 24C29.7144 27.1559 27.156 29.7143 24.0001 29.7143C20.8442 29.7143 18.2858 27.1559 18.2858 24C18.2858 20.8441 20.8442 18.2857 24.0001 18.2857C27.156 18.2857 29.7144 20.8441 29.7144 24Z' fill='rgba(255,255,255,0.05)'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M24.0001 48C36.0909 48 46.0934 39.0593 47.7571 27.4286H33.7006C32.2885 31.4235 28.4786 34.2857 24.0001 34.2857C19.5217 34.2857 15.7117 31.4235 14.2997 27.4286H0.243164C1.90681 39.0593 11.9094 48 24.0001 48ZM14.2997 20.5714H0.243164C1.90681 8.94071 11.9094 0 24.0001 0C36.0909 0 46.0934 8.94071 47.7571 20.5714H33.7006C32.2885 16.5765 28.4786 13.7143 24.0001 13.7143C19.5217 13.7143 15.7117 16.5765 14.2997 20.5714ZM29.7144 24C29.7144 27.1559 27.156 29.7143 24.0001 29.7143C20.8442 29.7143 18.2858 27.1559 18.2858 24C18.2858 20.8441 20.8442 18.2857 24.0001 18.2857C27.156 18.2857 29.7144 20.8441 29.7144 24Z' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+:root {
+  /* Valores originales + 2px (Base / Mobile) */
+  --fs-headline: 26px; /* 24 + 2 */
+  --fs-body-1: 16px;   /* 14 + 2 */
+  --fs-body-2: 14px;   /* 12 + 2 */
+  --fs-body-3: 12px;   /* 10 + 2 */
+  --fs-caption: 10px;  /* 8 + 2 */
+}
+
+/* Solo un cambio para pantallas mayores a MD (768px) */
+@media (min-width: 768px) {
+  :root {
+    /* Sumamos otros 2px adicionales a la base anterior */
+    --fs-headline: 28px;
+    --fs-body-1: 18px;
+    --fs-body-2: 16px;
+    --fs-body-3: 14px;
+    --fs-caption: 12px;
+  }
+}
+
+/* Pokeball loading animation - back and forth rotation */
+@keyframes pokeball-rotate {
+  0%, 100% {
+    transform: rotate(-25deg);
+  }
+  50% {
+    transform: rotate(25deg);
+  }
+}
+
+.animate-pokeball {
+  animation: pokeball-rotate 1s ease-in-out infinite;
+}
